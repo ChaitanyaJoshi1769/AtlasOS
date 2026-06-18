@@ -1,0 +1,37 @@
+{
+  "name": "atlases",
+  "version": "0.1.0",
+  "description": "AtlasOS - AI-native data operating system for autonomous agents",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "packageManager": "npm@10.0.0",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "test:integration": "turbo run test:integration",
+    "type-check": "turbo run type-check",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "k8s:apply": "kubectl apply -f packages/infra/kubernetes/",
+    "k8s:delete": "kubectl delete -f packages/infra/kubernetes/",
+    "format": "prettier --write \"packages/**/*.{ts,tsx,py,json,md}\"",
+    "format:check": "prettier --check \"packages/**/*.{ts,tsx,py,json,md}\""
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5",
+    "turbo": "^1.12.0",
+    "typescript": "^5.3.3"
+  }
+}
